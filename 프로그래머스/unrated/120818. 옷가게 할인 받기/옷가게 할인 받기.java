@@ -10,7 +10,7 @@ class Solution {
             answer_double = (double)price * 0.95;
         else
             answer_double = (double)price;
-        answer = (int)(Math.floor(answer_double));
+        answer = (int)(answer_double);
         return answer;
     }
 }
