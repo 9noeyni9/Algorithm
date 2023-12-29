@@ -3,7 +3,6 @@ class Solution {
         String answer = "";
         StringBuilder sb = new StringBuilder(my_string);
         answer = sb.reverse().toString();
-        
         return answer;
     }
 }
