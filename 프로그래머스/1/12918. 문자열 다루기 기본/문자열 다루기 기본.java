@@ -14,6 +14,6 @@ class Solution {
         }else{
             answer = false;
         }
-        return answer;
+        return count == s.length();
     }
 }
