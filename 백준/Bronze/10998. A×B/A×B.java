@@ -1,13 +1,15 @@
-import java.util.*;
+import java.io.*;
 
-class Main{
-    public static void main(String[] args){
-        Scanner scan = new Scanner(System.in);
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
         
-        int A, B =0;
-        A = scan.nextInt();
-        B = scan.nextInt();
+        String[] numbers = reader.readLine().split(" ");
         
-        System.out.println(A*B);
+        writer.write(Integer.parseInt(numbers[0]) * Integer.parseInt(numbers[1])+"\n");  
+        writer.flush(); 
+        writer.close();
+        
     }
 }
