@@ -1,21 +1,25 @@
-import java.util.*;
+import java.io.*;
 
-class Main {
-    public static void main(String[] args){
-        Scanner scan = new Scanner(System.in);
-        int H,M =0;
-        H=scan.nextInt();
-        M=scan.nextInt();
-        if(H >= 0 && H <= 23 && M >= 0 && M <= 59){
-            if(M < 45){
-                if(H == 0)
-                    System.out.println(23 + " " + (60-(45-M)));
-                else
-                    System.out.println((H-1) + " " + (60-(45-M)));
-            }
-            else if(M >= 45)
-                System.out.println(H + " " + (M-45));
+public class Main {
+    public static void main(String[] args) throws IOException{
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
+        
+        String[] time = reader.readLine().split(" ");
+        
+        int H = Integer.parseInt(time[0]);
+        int M = Integer.parseInt(time[1]);
+        
+        if(M >= 45){
+            M = M -45;
+        } else {
+            H = H == 0? 23 : H - 1;
+            M = 60 - (45 - M);
         }
+        
+        writer.write(H + " " + M + "\n");
+        
+        writer.flush();
+        writer.close();
     }
-
 }
