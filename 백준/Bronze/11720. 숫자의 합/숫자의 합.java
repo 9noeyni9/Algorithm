@@ -1,17 +1,22 @@
 import java.io.*;
 
-class Main {
-    public static void main(String args[]) throws IOException{
-        BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         
-        int N = Integer.parseInt(buffer.readLine());
-        String[] array = buffer.readLine().split("");
-        int[] numbers = new int[array.length];
-        int result =0;
-        for(int i =0;i < N;i++){
-            numbers[i] = Integer.parseInt(array[i]);
-            result += numbers[i];
+        int count = Integer.parseInt(br.readLine());
+        
+        String[] array = br.readLine().split("");
+        
+        int sum = 0;
+        for(int i = 0; i < count; i++){
+            int number = Integer.parseInt(array[i]);
+            sum += number;
         }
-        System.out.println(result);
+        
+        bw.write(sum + "\n");
+        bw.flush();
+        bw.close();
     }
 }
