@@ -25,7 +25,6 @@ public class Main {
             set.add(str);
         }
         
-        // 듣보잡 인원이 0일 때
         if(set.size() == (N+M)){
             bw.write(0 + "\n");
             bw.flush();
