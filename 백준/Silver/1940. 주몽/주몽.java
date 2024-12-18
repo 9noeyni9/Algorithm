@@ -6,26 +6,34 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         
-        HashSet<Integer> set = new HashSet<>();
-        
         int size = Integer.parseInt(br.readLine());
         int answer = Integer.parseInt(br.readLine());
         
         String[] array = br.readLine().split(" ");
-        
         br.close();
         
-        for(int i = 0; i < array.length; i++){
-            set.add(Integer.parseInt(array[i]));
+        int[] numbers = new int[size];
+        
+        for(int i = 0; i < numbers.length; i++){
+            numbers[i] = Integer.parseInt(array[i]);
         }
         
+        Arrays.sort(numbers);
+        
+        int startPoint = 0;
+        int endPoint = numbers.length - 1;
         int count = 0;
-        for(int j = 0; j < array.length; j++){
-            int number = Integer.parseInt(array[j]);
-            set.remove(number);
-            if(set.contains(answer - number)){
-                set.remove(answer - number);
+        
+        while(startPoint < endPoint){
+            int sum = numbers[startPoint] + numbers[endPoint];
+            if(sum == answer){
                 count++;
+                startPoint++;
+                endPoint--;
+            }else if(sum < answer) {
+                startPoint++;
+            }else {
+                endPoint--;
             }
         }
         
