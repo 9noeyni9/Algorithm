@@ -8,16 +8,10 @@ public class Main {
         HashSet<String> set = new HashSet<>();
         
         String str = br.readLine();
-        int startIndex = 0;
-        int endIndex = startIndex + 1;
-        while(startIndex < str.length()){
-            if(endIndex == str.length()){
-                set.add(str.substring(startIndex, endIndex));
-                startIndex++;
-                endIndex = startIndex + 1;
-            }else if(endIndex < str.length()){
-                set.add(str.substring(startIndex,endIndex));
-                endIndex++;
+        
+        for(int i = 0; i < str.length(); i++){
+            for(int j = i+1; j < str.length()+1;j++){
+                set.add(str.substring(i,j));
             }
         }
         
