@@ -1,10 +1,12 @@
 import java.util.*;
 
 class HardDisk {
+    int id;
     int start;
     int time;
     
-    public HardDisk(int start, int time){
+    public HardDisk(int id, int start, int time){
+        this.id = id;
         this.start = start;
         this.time = time;
     }
@@ -16,7 +18,8 @@ class Solution {
 
         PriorityQueue<HardDisk> pq = new PriorityQueue<>((hd1, hd2) -> {
             if (hd1.time != hd2.time) return Integer.compare(hd1.time, hd2.time);
-            return Integer.compare(hd1.start, hd2.start);
+            if(hd1.start != hd2.start) return Integer.compare(hd1.start, hd2.start);
+            return Integer.compare(hd1.id, hd2.id);
         });
 
         int totalTime = 0;
@@ -25,7 +28,7 @@ class Solution {
 
         while (count < jobs.length) {
             while (index < jobs.length && jobs[index][0] <= end) {
-                pq.offer(new HardDisk(jobs[index][0], jobs[index][1]));
+                pq.offer(new HardDisk(index, jobs[index][0], jobs[index][1]));
                 index++;
             }
 
